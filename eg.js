@@ -1,29 +1,78 @@
-const arr = [1, 2, 3, 4, 5];
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment</title>
+  </head>
+  <body style=background-color:skyblue>
+    <h1>Array properties in javascript</h1>
 
-arr.push(6);
-console.log(arr); // [1, 2, 3, 4, 5, 6]
+    <div>
+      <h2>Original Array</h2>
+      <p id="original-array"></p>
+    </div>
 
-arr.pop();
-console.log(arr); // [1, 2, 3, 4, 5]
+    <div>
+      <h2>Add 3 & Mapped Array</h2>
+      <p id="mapped-array"></p>
+    </div>
 
-const doubledArray = arr.map((element) => element * 2);
-console.log(doubledArray); // [2, 4, 6, 8, 10]
+    <div>
+      <h2>Filtered Array</h2>
+      <p id="filtered-array"></p>
+    </div>
 
-const filteredArray = arr.filter((element) => element > 3);
-console.log(filteredArray); // [4, 5]
+    <div>
+      <h2>Sliced Array</h2>
+      <p id="sliced-array"></p>
+    </div>
 
-const slicedArray = arr.slice(1, 4);
-console.log(slicedArray); // [2, 3, 4]
+    <div>
+      <h2>Reversed Array</h2>
+      <p id="reversed-array"></p>
+    </div>
 
-const reversedArray = arr.reverse();
-console.log(reversedArray); // [5, 4, 3, 2, 1]
+    <div>
+      <h2>Shifted Array</h2>
+      <p id="shifted-array"></p>
+    </div>
 
-const shiftedArray = arr.shift();
-console.log(shiftedArray); // 5
-console.log(arr); // [4, 3, 2, 1]
+    <div>
+      <h2>Fill Array</h2>
+      <p id="filled-array"></p>
+    </div>
 
-const arr = new Array(5).fill(0);
-console.log(arr); // [0, 0, 0, 0, 0]
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      
+      document.getElementById("original-array").innerHTML = arr.toString();
 
-const str = arr.join("-");
-console.log(str); // "0-0-0-0-0"
+      arr.push(6);
+
+      arr.pop();
+
+      const mappedArray = arr.map((element) => element + 3);
+      
+      document.getElementById("mapped-array").innerHTML = mappedArray.toString();
+
+      const filteredArray = arr.filter((element) => element > 3);
+      
+      document.getElementById("filtered-array").innerHTML = filteredArray.toString();
+
+      const slicedArray = arr.slice(1, 4);
+      
+      document.getElementById("sliced-array").innerHTML = slicedArray.toString();
+
+      const reversedArray = arr.reverse();
+      
+      document.getElementById("reversed-array").innerHTML = reversedArray.toString();
+
+      const shiftedArray = arr.shift();
+      
+      document.getElementById("shifted-array").innerHTML = shiftedArray.toString();
+
+      const arr2 = new Array(5).fill(0);
+      
+      document.getElementById("filled-array").innerHTML = arr2.toString();
+    </script>
+  </body>
+</html>

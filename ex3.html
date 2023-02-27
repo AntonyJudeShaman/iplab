@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        function validate() {
+
+            var name =document.forms["form"]["name"].value;
+            var date=document.forms["form"]["date"].value;
+            var email =document.forms["form"]["email"].value;
+            var phone =document.forms["form"]["phone"].value;
+            var password =document.forms["form"]["password"].value;
+            var confirm_password =document.forms["form"]["confirm_password"].value;
+            var city=document.forms["form"]["city"].value;
+            var state=document.forms["form"]["state"].value;
+            var zipcode=document.forms["form"]["zipcode"].value;
+            var file=document.forms["form"]["resume"].files[0];
+            var size = 5 * 1024 * 1024; 
+            var gender = document.getElementById("gender");
+            var work=document.getElementById("work");
+
+
+
+            if (name == "") {
+                alert("Name is Empty");
+                return false;
+            }
+
+            if(date===""){
+                alert("Please enter a DOB");
+                return false;
+            }
+            else if(!/^\d{2}\/\d{2}\/\d{4}$/.test(date)){
+                alert("Enter a date in the format DD/MM/YYYY");
+                return false;
+            }
+
+            if (email == "") {
+                alert("Email is Empty");
+                return false;
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                alert("Invalid email address");
+                return false;
+            }
+
+            if (phone == "") {
+                alert("Phone number is Empty");
+                return false;
+
+            } else if (!/^\d{10}$/.test(phone)) {
+                alert("Invalid phone number");
+                return false;
+            }
+
+            if (city == "") {
+                alert("City is Empty");
+                return false;
+            }
+
+            if (state == "") {
+                alert("State is Empty");
+                return false;
+            }
+            
+            if(zipcode==""){
+                alert("Zipcode is Empty");
+                return false;
+            }
+            else if (!/^6\d{5}$/.test(zipcode)) {
+                alert("Please enter a valid 6-digit TN-zip code starting with 6");
+                return false;
+            }
+
+            if (file==""){
+                alert("Please upload a file");
+                return false;
+            }
+            
+            else if (file.files[0].size > size) {
+                alert("File size exceeds the maximum limit of 5MB.");
+                return false;
+            }
+
+            if(gender.selectedIndex===0){
+                alert("Please select gender");
+                return false;
+            }
+
+            if(work.selectedIndex==0){
+                alert("Please select a status");
+                return false;
+            }
+
+            if (password == "") {
+                alert("Password Is Empty");
+                return false;
+            } else if (!/^(?=.*\d)(?=.*[A-Z]).{8}$/.test(password)) {
+                alert("Password must be at least 8 characters long and contain at least one digit and one uppercase letter");
+                return false;
+            }
+
+            if (confirm_password == "") {
+                alert("Confirm Password is Empty");
+                return false;
+            } else if (password != confirm_password) {
+                alert("Password no match");
+                return false;
+            }
+
+
+            return true;
+        }
+    </script>
+</head>
+<body background= "gr.jpg" style="color:rgb(17, 3, 31);">
+    <p style="text-align:center;font-size:25px "><u>Form validation using RegExp</u><p>
+    <form name="form" onsubmit="return validate()" method="post" action="submit.html">
+        <div >
+        Enter Username:&nbsp;&nbsp;<input type="text" name="name" style="color:black; background-color:skyblue;"><br><br>
+
+        DOB:&nbsp;&nbsp;<input type="text" name="date" style="color:black; background-color:skyblue;"><br><br>
+
+        Enter Email:&nbsp;&nbsp;<input type="email" name="email" style="color:black; background-color:skyblue;" ><br><br>
+
+        Enter Ph.no&nbsp;&nbsp;<input type="tel" name="phone" style="color:black; background-color:skyblue;"><br><br>
+
+        Enter City:&nbsp;&nbsp;<input type="text" name="city" style="color:black; background-color:skyblue;"><br><br>
+
+        Enter State:&nbsp;&nbsp;<input type="text" name="state" style="color:black; background-color:skyblue;"><br><br>
+
+        Enter Zipcode:&nbsp;&nbsp;<input type="text" name="zipcode" style="color:black; background-color:skyblue;"><br><br>
+
+        Upload Resume:&nbsp;&nbsp;<input type="file" name="resume" style="color:black; background-color:skyblue;"><br><br>
+        
+        Select Gender:&nbsp;
+        <select id="gender" style="color:black; background-color:skyblue;">
+            <option><-Select-></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        Work Status:&nbsp; 
+        <select id="work" style="color:black; background-color:skyblue;">
+            <option><-Select-></option>
+            <option value="student">Student</option>
+            <option value="Full">Full time Employed</option>
+            <option value="Part">Part time Employed</option>
+        </select><br><br>
+        
+        Enter password:&nbsp;&nbsp;<input type="password" name="password" style="color:black; background-color:skyblue;"><br><br>
+
+        Retype password&nbsp;&nbsp;<input type="password" name="confirm_password" style="color:black; background-color:skyblue;"><br><br>
+
+        Rating of the form:&nbsp;<input type="range" name="rating" min="1" max="10" style="color:black; background-color:skyblue;"><br><br>
+
+        &nbsp;<input type="submit" value="Submit" style="color:black; background-color:skyblue;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="Reset" value="Clear Form" style="color:black; background-color:skyblue;">
+        </div>
+    </form>
+</body>
+</html>

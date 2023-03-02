@@ -7,7 +7,7 @@ An image of Virat and Dhoni is displayed on the screen. Clicking on their caps, 
 
 EX:2(Styles)
 
-This exercise is implemented mainly using CSS classes. For internal styling, an user defined tag is created and used to add internal styling. For inline styling, the style attribute was added inside the <p> tag. An external CSS file was created for external styling. 
+This exercise is implemented mainly using CSS classes. For internal styling, an user defined tag is created and used to add internal styling. For inline styling, the style attribute was added inside the p tag. An external CSS file was created for external styling. 
 
 Ex:3(Form)
 

@@ -1,0 +1,26 @@
+<?php
+$PLAINTEXT = "Antony Jude Shaman";
+$KEY = 2;
+$CIPHERTEXT = "";
+$PLAINTEXT = strtoupper($PLAINTEXT);
+$Length = strlen($PLAINTEXT);
+
+for ($i = 0; $i < $Length; $i++) {
+    if (ctype_alpha($PLAINTEXT[$i])) {
+        $CIPHERTEXT .= chr((ord($PLAINTEXT[$i]) + $KEY - 65) % 26 + 65);
+    } else {
+        $CIPHERTEXT .= $PLAINTEXT[$i];
+    }
+}
+
+echo "PLAINTEXT: $PLAINTEXT\n";
+echo "KEY: $KEY\n";
+echo "CIPHERTEXT: $CIPHERTEXT";
+
+?>
+
+OUTPUT:
+php /tmp/U5pOglcz78.php
+PLAINTEXT: ANTONY JUDE SHAMAN
+KEY: 2
+CIPHERTEXT: CPVQPA LWFG UJCOCP
